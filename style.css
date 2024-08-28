@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --grid-size : 600px;
+}
+body{
+    text-align: center;
+}
+h1{
+    margin: 20px;
+}
+.container{
+    width: var(--grid-size);
+    height: var(--grid-size);
+    max-width: 1200px;
+    margin-inline: auto;
+    border: solid black 2px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.grid-element{
+    width: 6.25%;
+    height: 6.25%;
+    background-color: red;
+    border: solid white 1px;
+}
+
