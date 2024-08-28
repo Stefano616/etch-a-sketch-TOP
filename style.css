@@ -10,6 +10,12 @@ body{
 h1{
     margin: 20px;
 }
+button{
+    margin: 20px;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 10px;
+}
 .container{
     width: var(--grid-size);
     height: var(--grid-size);
@@ -21,9 +27,8 @@ h1{
 }
 .grid-element{
     width: 6.25%;
-    height: 6.25%;
+    aspect-ratio: 1 / 1;
     background-color: hsla(0, 100%, 50%, 100%);
-    /* border: solid white 1px; */
 }
 .hovered{
     background-color: hsla(0, 100%, 50%, 50%);
