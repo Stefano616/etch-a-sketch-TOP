@@ -21,16 +21,14 @@ button{
     height: var(--grid-size);
     max-width: 1200px;
     margin-inline: auto;
-    border: solid black 2px;
+    border: solid black 1px;
     display: flex;
     flex-wrap: wrap;
 }
 .grid-element{
     width: 6.25%;
     aspect-ratio: 1 / 1;
-    background-color: hsla(0, 100%, 50%, 100%);
+    background-color: rgba(0, 0, 0, 0);
 }
-.hovered{
-    background-color: hsla(0, 100%, 50%, 50%);
-}
+
 

@@ -32,10 +32,39 @@ function createGrid(size){
         const gridElement = document.createElement("div");
         gridElement.style.width = `${(100 / size)}%`;
         gridElement.classList.add("grid-element");
+
+        gridElement.addEventListener('mouseover', (e)=>{
+            const stepIncreaseAlphaValue = 0.1;
+            return changeAlphaValue(e.target, stepIncreaseAlphaValue);
+        });
+        
         gridContainer.appendChild(gridElement);
     }
-    gridContainer.addEventListener('mouseover', (e)=>e.target.classList.add("hovered"));
+
+    // Issues related to bubbling event parent-child - Needs a fix
+    // gridContainer.addEventListener('mouseover', (e)=>{
+    //     if(e.bubbles){
+    //         const stepIncreaseAlphaValue = 0.1;
+    //         console.log(e.target); 
+    //         return changeAlphaValue(e.target, stepIncreaseAlphaValue);
+    //     } else {
+    //         e.stopPropagation();
+    //         return e.target;
+    //     }
+    // });
+
     return size;
+}
+function changeAlphaValue(element, stepIncrease){
+    const currentValue = getComputedStyle(element).getPropertyValue('background-color');
+    const parts = currentValue.match(/[\d.]+/g);
+    console.log('before modification: ' + parts);
+    if(parts.length ===3){
+        parts.push(1);
+    }
+    parts[3]= Number(parts[3]) + stepIncrease;
+    console.log('after modification: ' + parts);
+    return element.style.backgroundColor = `rgba(${parts.join(',')})`;
 }
 
 createGrid(gridSize);
